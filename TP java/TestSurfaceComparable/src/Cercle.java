@@ -1,18 +1,25 @@
-
+import static java.lang.Math.PI;
 public class Cercle extends Figure {
 
+    /* Propriete*/
     int rayon;
-    double surface;
+    float surface;
+    
+    /*Constructeur*/
 
-    public double tabFigure(int rayon) {
+    public Cercle(int rayon) {
         this.rayon =rayon;
-        surface = (Math.PI * (rayon * rayon));
-        return surface;
-    }
-
-    @Override
-    public double tabFigure() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.surface =(float) (PI * (rayon * rayon));
     }
     
+    /*Méthodes*/
+    public float getSurface()
+    {
+        return surface;
+    }
+    public String toString()
+    {
+        return "\nCercle de rayon " + rayon + ", Surface : " + getSurface();
+    }
+   
 }

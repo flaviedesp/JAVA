@@ -12,7 +12,7 @@ public class TestSurfaceComparable {
                     new Triangle(6, 17),
                     new Cercle(3),
                     new Triangle(6, 7),
-                    new rectangle(3, 14)
+                    new Rectangle(3, 14)
                 };
         
         System.out.println("Figures a trier : \n");

@@ -1,32 +1,32 @@
 
 public class Triangle extends Figure {
+    
+    /* Propriete*/
 
     int base;
     int hauteur;
-    double surface;
+    float surface;
     int compare;
     Triangle triangle1;
     Triangle triangle2;
+    
+    /*Constructeur*/
 
-    public double Triangle(int base, int hauteur) {
+    public Triangle(int base, int hauteur) {
         this.base = base;
         this.hauteur = hauteur;
-        surface = (base * hauteur) / 2;
+        this.surface = (base * hauteur) / 2;
+    }
+    
+    /*Méthodes*/
+    public float getSurface()
+    {
         return surface;
     }
-
-    public int compareTo(Triangle t) {
-        triangle1 = (Triangle) t;        
-        compare = triangle1.compareTo(triangle2);
-        if(compare < 0)
-        {
-            return 1;
-        }
-        else
-        {
-            return -1;
-        }
-        
+    public String toString()
+    {
+        return "\nTriangle de base " + base + ", de hauteur " + hauteur + ", Surface : " + getSurface();
     }
+     
 
 }

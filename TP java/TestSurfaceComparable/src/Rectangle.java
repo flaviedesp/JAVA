@@ -1,21 +1,29 @@
 
 public class Rectangle extends Figure{
     
+    /* Propriete*/
     int base;
     int hauteur;
-    double surface;
+    float surface;
     
-    public double tabFigure(int base, int hauteur)
+    /*Constructeur*/
+    
+    public Rectangle(int base, int hauteur)
     {
         this.base =  base;
         this.hauteur = hauteur;
-        surface = (base * hauteur);
+        this.surface = (base * hauteur);
+    }
+    
+    /*Méthodes*/
+    public float getSurface()
+    {
         return surface;
     }
-
-    @Override
-    public double tabFigure() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString()
+    {
+        return "\nRectangle de largeur " + base + ", de hauteur " + hauteur + ", Surface : " + getSurface();
     }
+
    
 }
