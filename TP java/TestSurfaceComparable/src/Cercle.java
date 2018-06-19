@@ -2,8 +2,8 @@ import static java.lang.Math.PI;
 public class Cercle extends Figure {
 
     /* Propriete*/
-    int rayon;
-    float surface;
+    private int rayon;
+    private float surface;
     
     /*Constructeur*/
 

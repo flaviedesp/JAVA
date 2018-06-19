@@ -2,9 +2,9 @@
 public class Rectangle extends Figure{
     
     /* Propriete*/
-    int base;
-    int hauteur;
-    float surface;
+    private int base;
+    private  int hauteur;
+    private float surface;
     
     /*Constructeur*/
     
@@ -12,7 +12,7 @@ public class Rectangle extends Figure{
     {
         this.base =  base;
         this.hauteur = hauteur;
-        this.surface = (base * hauteur);
+        this.surface =(float) (base * hauteur);
     }
     
     /*Méthodes*/

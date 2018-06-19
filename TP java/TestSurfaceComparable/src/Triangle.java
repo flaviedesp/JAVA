@@ -3,19 +3,16 @@ public class Triangle extends Figure {
     
     /* Propriete*/
 
-    int base;
-    int hauteur;
-    float surface;
-    int compare;
-    Triangle triangle1;
-    Triangle triangle2;
-    
+    private int base;
+    private int hauteur;
+    private float surface;
+            
     /*Constructeur*/
 
     public Triangle(int base, int hauteur) {
         this.base = base;
         this.hauteur = hauteur;
-        this.surface = (base * hauteur) / 2;
+        this.surface = (base * hauteur) / 2.f;
     }
     
     /*Méthodes*/
@@ -28,5 +25,4 @@ public class Triangle extends Figure {
         return "\nTriangle de base " + base + ", de hauteur " + hauteur + ", Surface : " + getSurface();
     }
      
-
 }
