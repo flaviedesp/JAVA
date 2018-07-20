@@ -2,6 +2,7 @@
 public class TestClavier {
     public static void main(String argv[]) throws Exception
     {
+        Clavier.setCodage("Cp1252");
         
         int verifEntier;
                 
