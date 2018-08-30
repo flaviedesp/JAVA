@@ -18,6 +18,10 @@ public class AccesServeur {
         this.priseServeur = priseServeur;
     }
 
+    public PriseServeur getPriseServeur() {
+        return priseServeur;
+    }
+
     public static Socket getConnection() throws IOException {
 
         socketClient = new Socket(priseServeur.getNomMachine(), priseServeur.getNumeroPort());
@@ -28,35 +32,55 @@ public class AccesServeur {
     }
 
     public static void closeConnection() throws IOException {
-        socketClient.close();
+        if ((socketClient != null) && (!socketClient.isClosed())) {
+            socketClient.close();
+        }
     }
 
     public JeuResultat executeQuery(String select) throws IOException, ClassNotFoundException {
-
-        sortie.writeObject(select);
-
-        reponse = (Integer) entree.readObject();
-        if (reponse == 0) {
-            throw new IOException((String) entree.readObject());
-        } else {
-            jeuResultat = (JeuResultat) entree.readObject();
+        if (select.compareTo("") == 0) {
+            throw new IOException("Requete vide");
         }
-        return jeuResultat;
+        getConnection();
+        try {
+            sortie.writeObject(select);
+
+            reponse = (Integer) entree.readObject();
+
+            if (reponse == 0) {
+                throw new IOException((String) entree.readObject());
+            } else {
+                jeuResultat = (JeuResultat) entree.readObject();
+            }
+            return jeuResultat;
+
+        } finally {
+            closeConnection();
+        }
     }
 
     public Integer executeUpdate(String requete) throws IOException, ClassNotFoundException {
 
-        sortie.writeObject(requete);
+        if (requete.compareTo("") == 0) {
+            throw new IOException("Requete vide");
+        }
+        getConnection();
+        try {
+            sortie.writeObject(requete);
 
-        reponse = (Integer) entree.readObject();
-        if (reponse == 0) {
-            throw new IOException((String) entree.readObject());
-        } else {
-            System.out.println(reponse);
-            nombreModif = (Integer) entree.readObject();
+            reponse = (Integer) entree.readObject();
+            if (reponse == 0) {
+                throw new IOException((String) entree.readObject());
+            } else {
+                System.out.println(reponse);
+                nombreModif = (Integer) entree.readObject();
+            }
+            return nombreModif;
+            
+        } finally {
+            closeConnection();
         }
 
-        return nombreModif;
     }
 
     public PriseServeur getServeur() {

@@ -6,7 +6,10 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utilitairesMG.divers.*;
 import utilitairesMG.graphique.table.*;
 import metierMapping.*;
@@ -200,7 +203,8 @@ public class FenetreInterneContact extends JInternalFrame
                         modeleTable.getListeContactsSupprimes());
             } catch (ClassNotFoundException ex) {
                 System.out.println(ex.getMessage());
-            }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());            }
         }
     }
 }

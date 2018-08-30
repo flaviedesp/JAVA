@@ -5,8 +5,11 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import javax.swing.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import metierMapping.*;
 import utilitairesMG.divers.*;
 import utilitairesMG.graphique.fenetreinterne.*;
@@ -114,6 +117,8 @@ public class Fenetre extends JFrame implements ActionListener
                 Controleur.demandeContacts();
             } catch (ClassNotFoundException ex) {
                 System.out.println(e.getSource());
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
             }
         }
         else
